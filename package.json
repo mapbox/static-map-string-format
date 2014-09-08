@@ -1,0 +1,27 @@
+{
+  "name": "static-map-string-format",
+  "version": "0.0.0",
+  "description": "parse and instantiate static map query strings",
+  "main": "index.js",
+  "dependencies": {
+    "geojson-normalize": "0.0.0",
+    "polyline": "0.0.3",
+    "tape": "~2.14.0",
+    "csscolorparser": "~1.0.2",
+    "geojsonhint": "~0.3.4"
+  },
+  "devDependencies": {
+    "tape": "~2.14.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "string",
+    "format",
+    "static",
+    "map"
+  ],
+  "author": "Tom MacWright",
+  "license": "ISC"
+}
