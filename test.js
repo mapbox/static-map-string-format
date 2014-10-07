@@ -87,6 +87,40 @@ test('stringToFeature', function(t) {
             type: 'Feature'
         }], 'path(');
 
+    t.deepEqual(
+        stringToFeature('path-2+f44-0.5+68a-0.25(' + polyline.encode([[0, 0], [1, 1]]) + ')'),
+        [{
+            geometry: {
+                coordinates: [[0, 0], [1, 1]],
+                type: 'LineString'
+            },
+            properties: {
+                fill: 'rgba(102,136,170,1)',
+                'fill-opacity': '0.25',
+                stroke: 'rgba(255,68,68,1)',
+                'stroke-opacity': '0.5',
+                'stroke-width': '2'
+            },
+            type: 'Feature'
+        }], 'path-2+f44-0.5+68a-0.25(');
+
+    t.deepEqual(
+        stringToFeature('path-2.25+f44-0.5+68a-0.25(' + polyline.encode([[0, 0], [1, 1]]) + ')'),
+        [{
+            geometry: {
+                coordinates: [[0, 0], [1, 1]],
+                type: 'LineString'
+            },
+            properties: {
+                fill: 'rgba(102,136,170,1)',
+                'fill-opacity': '0.25',
+                stroke: 'rgba(255,68,68,1)',
+                'stroke-opacity': '0.5',
+                'stroke-width': '2.25'
+            },
+            type: 'Feature'
+        }], 'path-2.25+f44-0.5+68a-0.25(');
+
     var point = { type: 'Point', coordinates: [42, 24] };
     t.deepEqual(
         stringToFeature('geojson(' + JSON.stringify(point) + ')'),
