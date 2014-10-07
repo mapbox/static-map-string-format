@@ -6,7 +6,7 @@ var geojsonNormalize = require('geojson-normalize'),
 module.exports = function stringToFeature(str) {
     var matchURL = /^(url)(?:-([^\(]+))()\((-?\d+(?:.\d+)?),(-?\d+(?:.\d+)?)/,
         matchGeoJSON = /^geojson\(([^\)]+)/,
-        matchPath = /^path(-(\d+))?(\+([0-9a-fA-F]{3}|[0-9a-fA-F]{6})(-([\.\d]+))?)?(\+([0-9a-fA-F]{3}|[0-9a-fA-F]{6})(-([\.\d]+))?)?\(([^\)]+)/,
+        matchPath = /^path(-([\.\d]+))?(\+([0-9a-fA-F]{3}|[0-9a-fA-F]{6})(-([\.\d]+))?)?(\+([0-9a-fA-F]{3}|[0-9a-fA-F]{6})(-([\.\d]+))?)?\(([^\)]+)/,
         matchFile = /^pin-(s|m|l)(?:-([a-z0-9-]+))?(?:\+([0-9a-fA-F]{3}|[0-9a-fA-F]{6}))?\((-?\d+(?:.\d+)?),(-?\d+(?:.\d+)?)/,
         isURL = str.indexOf('url-') === 0,
         isGeoJSON = str.indexOf('geojson(') === 0,
