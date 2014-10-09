@@ -95,5 +95,5 @@ function formatColor(str) {
     if (!str) return null;
     var parsed = csscolorparser('#' + str);
     if (!parsed) return null;
-    return 'rgba(' + parsed.join(',') + ')';
+    return '#' + str;
 }

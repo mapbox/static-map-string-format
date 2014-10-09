@@ -95,9 +95,9 @@ test('stringToFeature', function(t) {
                 type: 'LineString'
             },
             properties: {
-                fill: 'rgba(102,136,170,1)',
+                fill: '#68a',
                 'fill-opacity': '0.25',
-                stroke: 'rgba(255,68,68,1)',
+                stroke: '#f44',
                 'stroke-opacity': '0.5',
                 'stroke-width': '2'
             },
@@ -112,9 +112,9 @@ test('stringToFeature', function(t) {
                 type: 'LineString'
             },
             properties: {
-                fill: 'rgba(102,136,170,1)',
+                fill: '#68a',
                 'fill-opacity': '0.25',
-                stroke: 'rgba(255,68,68,1)',
+                stroke: '#f44',
                 'stroke-opacity': '0.5',
                 'stroke-width': '2.25'
             },
