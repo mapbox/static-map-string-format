@@ -17,7 +17,9 @@ module.exports = function stringToFeature(str) {
 
     if (isURL) {
         marker = str.match(matchURL);
-        if (!marker) return null;
+        if (!marker || isNaN(parseFloat(marker[4])) || isNaN(parseFloat(marker[5]))) {
+            return new Error('Invalid marker: ' + str);
+        }
         return [{
             type: 'Feature',
             geometry: {
