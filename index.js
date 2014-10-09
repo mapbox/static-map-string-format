@@ -32,7 +32,7 @@ module.exports = function stringToFeature(str) {
         }];
     } else if (isGeoJSON) {
         marker = str.match(matchGeoJSON);
-        if (!marker) return null;
+        if (!marker) return new Error('Invalid geojson syntax');
         try {
             if (geojsonhint.hint(marker[1]).length) {
                 return new Error('Invalid GeoJSON');
@@ -45,7 +45,7 @@ module.exports = function stringToFeature(str) {
         }
     } else if (isPolyline) {
         marker = str.match(matchPath);
-        if (!marker) return null;
+        if (!marker) return new Error('Invalid path syntax');
         var properties = {
             'stroke-width': marker[2],
             stroke: formatColor(marker[4]),
@@ -57,9 +57,9 @@ module.exports = function stringToFeature(str) {
             if (!properties[k]) delete properties[k];
         });
         var encodedLine = marker[11];
-        if (!encodedLine) return null;
+        if (!encodedLine) return new Error('Invalid polyline');
         var decoded = polyline.decode(encodedLine);
-        if (!decoded) return null;
+        if (!decoded) return new Error('Invalid polyline');
         var feature = [{
             type: 'Feature',
             properties: properties,

@@ -129,11 +129,11 @@ test('stringToFeature', function(t) {
             properties: {},
             geometry: point
         }], 'geojson(point)');
-
     t.equal(stringToFeature('url-google.com(,)').message, 'Invalid marker: url-google.com(,)', 'invalid');
     t.equal(stringToFeature('pin-m(,)').message, 'Invalid marker: pin-m(,)', 'invalid');
     t.equal(stringToFeature('gibberish').message, 'Invalid marker: gibberish', 'invalid');
-    t.equal(stringToFeature('path('), null, 'invalid');
+    t.equal(stringToFeature('path(').message, 'Invalid path syntax', 'invalid');
+    t.equal(stringToFeature('path-2.25+f444-0.5+68a-0.25(').message, 'Invalid path syntax', 'invalid');
     t.equal(stringToFeature('geojson(hi').message, 'Invalid GeoJSON', 'invalid');
 
     t.end();
