@@ -1,5 +1,5 @@
 {
-  "name": "static-map-string-format",
+  "name": "@mapbox/static-map-string-format",
   "version": "0.0.2",
   "description": "parse and instantiate static map query strings",
   "main": "index.js",
